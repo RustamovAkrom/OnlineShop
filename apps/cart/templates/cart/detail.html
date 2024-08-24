@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Your shopping cart {% endblock %}
+
+{% block content %}
+<h1>Your shopping cart</h1>
+<div class="bd-example">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">
+                    <h4>Image</h4>
+                </th>
+                <th scope="col">
+                    <h4>Product</h4>
+                </th>
+                <th scope="col">
+                    <h4>Quantity</h4>
+                </th>
+                <th scope="col">
+                    <h4>Remove</h4>
+                </th>
+                <th scope="col">
+                    <h4>Unit price</h4>
+                </th>
+                <th scope="col">
+                    <h4>Price</h4>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart %}
+                {% with product=item.product %}
+                <tr>
+                    <th scope="row">
+                        <a href="{{ product.get_absolute_url }}">
+                            <img src="{{ product.image.url }}" alt="" class="img-fluid" width="100" height="100">
+                        </a>
+                    </th>
+                    <td><b>{{ product.name }}</b></td>
+                    <td>
+                        <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                            {{ item.update_quantity_form.quantity }}
+                            {{ item.update_quantity_form.override }}
+                            {% csrf_token %}
+                            <input type="submit" class="btn btn-outline-info" value="Update">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+                            <input type="submit" value="Remove" class="btn btn-outline-danger">
+                            {% csrf_token %}
+                        </form>
+                    </td>
+                    <td><b>{{ item.price }}</b></td>
+                    <td><b>{{ item.total_price }}</b></td>
+                </tr>
+                {% endwith %}
+            {% endfor %}
+            <tr>
+                <th scope="col">
+                    <h6>Total</h6>
+                </th>
+                <th scope="col">
+                </th>
+                <th scope="col">
+                </th>
+                <th scope="col">
+                </th>
+                <th scope="col">
+                </th>
+                <th scope="col">
+                    <h4>
+                        <strong class="d-inline-block mb-2 text-success">${{ cart.get_total_price }}</strong>
+                    </h4>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="text-right">
+    <a href="{% url 'shop:product_list' %}" class="btn btn-outline-dark">Continune shopping</a>
+    <a href="{% url 'orders:order_create' %}" class="btn btn-outline-primary">Checkout</a>
+</div>
+
+{% endblock %}

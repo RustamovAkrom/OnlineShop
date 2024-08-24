@@ -1,0 +1,8 @@
+__pycache__
+.env
+page.txt
+order.csv
+staticfiles/
+media/
+db.sqlite3
+env/

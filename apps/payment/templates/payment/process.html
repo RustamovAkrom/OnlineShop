@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Pay your order {% endblock %}
+
+{% block content %}
+<div class="bd-example">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">
+                    <h4>Image</h4>
+                </th>
+                <th scope="col">
+                    <h4>Product</h4>
+                </th>
+                <th scope="col">
+                    <h4>Price</h4>
+                </th>
+                <th scope="col">
+                    <h4>Quantity</h4>
+                </th>
+                <th scope="col">
+                    <h4>Total</h4>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in order.items.all %}
+                <tr>
+                    <th scope="row">
+                        {% if item.product.image %}
+                            <img src="{{ item.product.image.url }}" alt="" class="img-fluid" width="100" height="100">
+                        {% else %}
+                            <img src="{% static 'img/no_image.png' %}" alt="" class="img-fluid" width="100" height="100">
+                        {% endif %}
+                    </th>
+                    <td><b>{{ item.product.name }}</b></td>
+                    <td><b>{{ item.product.price }}</b></td>
+                    <td><b>{{ item.quantity }}</b></td>
+                    <td><b>{{ item.get_cost }}</b></td>
+                </tr>
+            {% endfor %}
+            <hr>
+            <tr>
+                <th scope="col">
+                    <h4>Total</h4>
+                </th>
+                <th scope="col">
+                </th>
+                <th scope="col">
+                </th>
+                <th scope="col">
+                </th>
+                <th scope="col">
+                    <h4>
+                        <strong class="d-inline-block mb-2 text-success">${{ order.get_total_cost }}</strong>
+                    </h4>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="text-right">
+    <form action="{% url 'payment:process' %}" method="post">
+        <input type="submit" value="Pay now" class="btn btn-outline-primary">
+        {% csrf_token %}
+    </form>
+</div>
+
+{% endblock %}
