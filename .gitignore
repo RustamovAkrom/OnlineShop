@@ -6,3 +6,4 @@ staticfiles/
 media/
 db.sqlite3
 env/
+ubuntu_env/

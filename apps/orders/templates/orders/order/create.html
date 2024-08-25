@@ -25,11 +25,23 @@
                     </div>
                     <span class="text-muted">${{ item.total_price }}</span>
                 </li>
+                {% if cart.coupon %}
+                    <li class="list-group-item d-flex justify-content-between ">
+                        <div>
+                            <small class="my-0">
+                                "{{ cart.coupon.code }}" ({{ cart.coupon.discount }}% off)
+                            </small>
+                        </div>
+                        <span class="text-muted">
+                            <strong class="d-inline-block mb-2 text-danger">- ${{ cart.get_discount|floatformat:2 }}</strong>
+                        </span>
+                    </li>
+                {% endif %}
                 {% endfor %}
             </ul>
             <div class="cart p-2">
                 <h5>Total:</h5>
-                <strong class="d-inline-block mb-2 text-success">${{ cart.get_total_price }}</strong>
+                <strong class="d-inline-block mb-2 text-success">${{ cart.get_total_price_after_discount|floatformat:2 }}</strong>
             </div>
         </div>
         <!-- checkout -->

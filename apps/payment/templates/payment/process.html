@@ -39,21 +39,32 @@
                     <td><b>{{ item.quantity }}</b></td>
                     <td><b>{{ item.get_cost }}</b></td>
                 </tr>
+                {% if order.coupon %}
+                    <tr>
+                        <td>Subtotal</td>
+                        <td colspan="3"></td>
+                        <td>${{ order.get_total_cost_before_discount|floatformat:2 }}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            "{{ order.coupon.code }}" coupon
+                            ({{ order.discount }}% off)
+                        </td>
+                        <td colspan="3"></td>
+                        <td>                        
+                            <strong class="d-inline-block mb-2 text-danger">- ${{ order.get_discount|floatformat:2 }}</strong>
+                        </td>
+                    </tr>
+                {% endif %}
             {% endfor %}
             <hr>
             <tr>
-                <th scope="col">
+                <th scope="col" colspan="4">
                     <h4>Total</h4>
                 </th>
                 <th scope="col">
-                </th>
-                <th scope="col">
-                </th>
-                <th scope="col">
-                </th>
-                <th scope="col">
                     <h4>
-                        <strong class="d-inline-block mb-2 text-success">${{ order.get_total_cost }}</strong>
+                        <strong class="d-inline-block mb-2 text-success">${{ order.get_total_cost|floatformat:2 }}</strong>
                     </h4>
                 </th>
             </tr>

@@ -5,7 +5,7 @@ from django.db import models
 from apps.shared.models import AbstractBaseModel
 
 
-class Category(models.Model):
+class Category(AbstractBaseModel):
     name = models.CharField(_('name'), max_length=200)
     slug = models.SlugField(_('slug'), max_length=200, unique=True)
 
@@ -29,7 +29,7 @@ class Category(models.Model):
     
     def __str__(self) -> str:
         return self.name
-    
+
 
 class Product(AbstractBaseModel):
     category = models.ForeignKey(
@@ -39,12 +39,12 @@ class Product(AbstractBaseModel):
     )
     name = models.CharField(_('name'), max_length=200)
     slug = models.SlugField(_('slug'), max_length=200)
+    description = models.TextField(_('description'), blank=True)
     image = models.ImageField(
         _('image'),
         upload_to='products/%Y/%m/%d',
         blank=True
     )
-    description = models.TextField(_('description'), blank=True)
     price = models.DecimalField(_('price'), max_digits=10, decimal_places=2)
     available = models.BooleanField(_('available'), default=True)
 

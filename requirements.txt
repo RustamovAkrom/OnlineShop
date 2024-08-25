@@ -1,6 +1,10 @@
-django
-Pillow
-celery
-flower
-stripe==9.3.0
-python-decouple==3.8
+Django==5.1
+django-celery-beat==2.6.0
+django-celery-results==2.5.1
+pillow==10.2.0
+celery==5.3.6
+flower==2.0.1stripe==9.3.0
+python-dotenv==1.0.1
+django-rosetta==0.10.0
+django-modeltranslation==0.18.4
+django-localflavor==4.0
