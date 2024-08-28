@@ -8,51 +8,120 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('updated', models.DateTimeField(auto_now=True)),
-                ('name', models.CharField(max_length=200, verbose_name='name')),
-                ('slug', models.SlugField(max_length=200, unique=True, verbose_name='slug')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("updated", models.DateTimeField(auto_now=True)),
+                ("name", models.CharField(max_length=200, verbose_name="name")),
+                (
+                    "slug",
+                    models.SlugField(max_length=200, unique=True, verbose_name="slug"),
+                ),
             ],
             options={
-                'verbose_name': 'category',
-                'verbose_name_plural': 'categories',
-                'ordering': ['name'],
-                'indexes': [models.Index(fields=['name'], name='shop_catego_name_289c7e_idx')],
+                "verbose_name": "category",
+                "verbose_name_plural": "categories",
+                "ordering": ["name"],
+                "indexes": [
+                    models.Index(fields=["name"], name="shop_catego_name_289c7e_idx")
+                ],
             },
         ),
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('updated', models.DateTimeField(auto_now=True)),
-                ('name', models.CharField(max_length=200, verbose_name='name')),
-                ('name_en', models.CharField(max_length=200, null=True, verbose_name='name')),
-                ('name_uz', models.CharField(max_length=200, null=True, verbose_name='name')),
-                ('slug', models.SlugField(max_length=200, verbose_name='slug')),
-                ('slug_en', models.SlugField(max_length=200, null=True, verbose_name='slug')),
-                ('slug_uz', models.SlugField(max_length=200, null=True, verbose_name='slug')),
-                ('description', models.TextField(blank=True, verbose_name='description')),
-                ('description_en', models.TextField(blank=True, null=True, verbose_name='description')),
-                ('description_uz', models.TextField(blank=True, null=True, verbose_name='description')),
-                ('image', models.ImageField(blank=True, upload_to='products/%Y/%m/%d', verbose_name='image')),
-                ('price', models.DecimalField(decimal_places=2, max_digits=10, verbose_name='price')),
-                ('available', models.BooleanField(default=True, verbose_name='available')),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='products', to='shop.category')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("updated", models.DateTimeField(auto_now=True)),
+                ("name", models.CharField(max_length=200, verbose_name="name")),
+                (
+                    "name_en",
+                    models.CharField(max_length=200, null=True, verbose_name="name"),
+                ),
+                (
+                    "name_uz",
+                    models.CharField(max_length=200, null=True, verbose_name="name"),
+                ),
+                ("slug", models.SlugField(max_length=200, verbose_name="slug")),
+                (
+                    "slug_en",
+                    models.SlugField(max_length=200, null=True, verbose_name="slug"),
+                ),
+                (
+                    "slug_uz",
+                    models.SlugField(max_length=200, null=True, verbose_name="slug"),
+                ),
+                (
+                    "description",
+                    models.TextField(blank=True, verbose_name="description"),
+                ),
+                (
+                    "description_en",
+                    models.TextField(blank=True, null=True, verbose_name="description"),
+                ),
+                (
+                    "description_uz",
+                    models.TextField(blank=True, null=True, verbose_name="description"),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        blank=True, upload_to="products/%Y/%m/%d", verbose_name="image"
+                    ),
+                ),
+                (
+                    "price",
+                    models.DecimalField(
+                        decimal_places=2, max_digits=10, verbose_name="price"
+                    ),
+                ),
+                (
+                    "available",
+                    models.BooleanField(default=True, verbose_name="available"),
+                ),
+                (
+                    "category",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="products",
+                        to="shop.category",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'product',
-                'verbose_name_plural': 'products',
-                'ordering': ['name'],
-                'indexes': [models.Index(fields=['id', 'slug'], name='shop_produc_id_f21274_idx'), models.Index(fields=['name'], name='shop_produc_name_a2070e_idx'), models.Index(fields=['-created'], name='shop_produc_created_ef211c_idx')],
+                "verbose_name": "product",
+                "verbose_name_plural": "products",
+                "ordering": ["name"],
+                "indexes": [
+                    models.Index(
+                        fields=["id", "slug"], name="shop_produc_id_f21274_idx"
+                    ),
+                    models.Index(fields=["name"], name="shop_produc_name_a2070e_idx"),
+                    models.Index(
+                        fields=["-created"], name="shop_produc_created_ef211c_idx"
+                    ),
+                ],
             },
         ),
     ]

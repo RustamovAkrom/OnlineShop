@@ -6,28 +6,32 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('shop', '0001_initial'),
+        ("shop", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='category',
-            name='name_en',
-            field=models.CharField(max_length=200, null=True, verbose_name='name'),
+            model_name="category",
+            name="name_en",
+            field=models.CharField(max_length=200, null=True, verbose_name="name"),
         ),
         migrations.AddField(
-            model_name='category',
-            name='name_uz',
-            field=models.CharField(max_length=200, null=True, verbose_name='name'),
+            model_name="category",
+            name="name_uz",
+            field=models.CharField(max_length=200, null=True, verbose_name="name"),
         ),
         migrations.AddField(
-            model_name='category',
-            name='slug_en',
-            field=models.SlugField(max_length=200, null=True, unique=True, verbose_name='slug'),
+            model_name="category",
+            name="slug_en",
+            field=models.SlugField(
+                max_length=200, null=True, unique=True, verbose_name="slug"
+            ),
         ),
         migrations.AddField(
-            model_name='category',
-            name='slug_uz',
-            field=models.SlugField(max_length=200, null=True, unique=True, verbose_name='slug'),
+            model_name="category",
+            name="slug_uz",
+            field=models.SlugField(
+                max_length=200, null=True, unique=True, verbose_name="slug"
+            ),
         ),
     ]
