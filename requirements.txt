@@ -3,7 +3,8 @@ django-celery-beat==2.6.0
 django-celery-results==2.5.1
 pillow==10.4.0
 celery==5.3.6
-flower==2.0.1stripe==9.3.0
+flower==2.0.1
+stripe==9.3.0
 python-dotenv==1.0.1
 django-rosetta==0.10.0
 django-modeltranslation==0.19.7
