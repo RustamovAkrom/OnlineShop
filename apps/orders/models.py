@@ -6,7 +6,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from apps.shared.models import AbstractBaseModel
 from apps.coupons.models import Coupon
 
-
+ 
 class Order(AbstractBaseModel):
     first_name = models.CharField(_("first name"), max_length=50)
     last_name = models.CharField(_("last name"), max_length=50)
