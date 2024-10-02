@@ -2,7 +2,6 @@ __pycache__
 .env
 page.txt
 order.csv
-staticfiles/
 media/
 env/
 ubuntu_env/
