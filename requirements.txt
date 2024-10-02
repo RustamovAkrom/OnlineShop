@@ -2,7 +2,7 @@ django
 django-celery-beat
 django-celery-results
 pillow
-celery# Celery 4.4.x versiyasini belgilang
+celery==5.5.0b4# Celery 4.4.x versiyasini belgilang
 flower# upgrade flower to resolve vine conflict
 stripe
 python-dotenv
