@@ -1,15 +1,15 @@
-django==3.2.25
-django-celery-beat==2.5.0
-django-celery-results==2.3.0
-pillow==8.3.2
-celery==4.4.7  # Celery 4.4.x versiyasini belgilang
-flower==1.0.0  # upgrade flower to resolve vine conflict
-stripe==2.61.0
-python-dotenv==0.19.0
-django-rosetta==0.9.8
-django-modeltranslation==0.17.1
-django-localflavor==3.0.1
-django-ckeditor==6.0.0
-django-crispy-forms==1.13.0
-django-js-asset==1.2.2
-django-jazzmin==2.0.0  # yoki kerakli versiyani tanlang
+django
+django-celery-beat
+django-celery-results
+pillow
+celery# Celery 4.4.x versiyasini belgilang
+flower# upgrade flower to resolve vine conflict
+stripe
+python-dotenv
+django-rosetta
+django-modeltranslation
+django-localflavor
+django-ckeditor
+django-crispy-forms
+django-js-asset
+django-jazzmin  # yoki kerakli versiyani tanlang
