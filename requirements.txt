@@ -14,4 +14,5 @@ django-crispy-forms
 django-js-asset
 django-jazzmin
 django-debug-toolbar==4.4.6
+redis==5.1.0
 gunicorn==20.1.0
