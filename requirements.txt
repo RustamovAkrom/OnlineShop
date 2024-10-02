@@ -3,7 +3,7 @@ django-celery-beat==2.5.0
 django-celery-results==2.3.0
 pillow==8.3.2
 celery==4.4.7  # Celery 4.4.x versiyasini belgilang
-flower>=1.0.0  # upgrade flower to resolve vine conflict
+flower==1.0.0  # upgrade flower to resolve vine conflict
 stripe==2.61.0
 python-dotenv==0.19.0
 django-rosetta==0.9.8
