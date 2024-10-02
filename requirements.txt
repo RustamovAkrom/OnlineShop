@@ -13,3 +13,4 @@ django-ckeditor
 django-crispy-forms
 django-js-asset
 django-jazzmin
+gunicorn==20.1.0
