@@ -2,8 +2,8 @@ django
 django-celery-beat
 django-celery-results
 pillow
-celery==5.5.0b4# Celery 4.4.x versiyasini belgilang
-flower# upgrade flower to resolve vine conflict
+celery==5.5.0b4
+flower
 stripe
 python-dotenv
 django-rosetta
@@ -12,4 +12,4 @@ django-localflavor
 django-ckeditor
 django-crispy-forms
 django-js-asset
-django-jazzmin  # yoki kerakli versiyani tanlang
+django-jazzmin
